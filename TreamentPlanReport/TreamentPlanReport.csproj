@@ -67,10 +67,14 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Converters\PatientShiftConverter.cs" />
+    <Compile Include="Models\PatientShiftModel.cs" />
     <Compile Include="Models\ReferencePointModel.cs" />
+    <Compile Include="Models\ShiftDirectionEnum.cs" />
     <Compile Include="ViewModels\CTImageViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModels\PatientInfoViewModel.cs" />
+    <Compile Include="ViewModels\PatientShifViewModel.cs" />
     <Compile Include="ViewModels\PlanViewModel.cs" />
     <Compile Include="ViewModels\ReferencePointViewModel.cs" />
     <Compile Include="Views\CTImageView.xaml.cs">
@@ -78,6 +82,9 @@
     </Compile>
     <Compile Include="Views\MainView.xaml.cs">
       <DependentUpon>MainView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PatientShiftView.xaml.cs">
+      <DependentUpon>PatientShiftView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\PatientView.xaml.cs">
       <DependentUpon>PatientView.xaml</DependentUpon>
@@ -124,6 +131,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\PatientShiftView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\PatientView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -138,5 +149,25 @@
     </Page>
   </ItemGroup>
   <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\PatientShift\CouchDown.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\PatientShift\CouchIn.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\PatientShift\CouchLeft.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\PatientShift\CouchOut.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\PatientShift\CouchRight.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\PatientShift\CouchUp.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

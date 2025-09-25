@@ -28,7 +28,8 @@ namespace TreamentPlanReport
 				var plan = course.PlanSetups.FirstOrDefault(p => p.Id == "IMRT Calc");
 				//Create a mainwindow to hold our patientview.
 				var mainWindow = new MainView();
-				mainWindow.DataContext = new MainViewModel(new PatientInfoViewModel(patient), new PlanInfoViewModel(plan), new CTInfoViewModel(plan.StructureSet.Image), new ReferencePointViewModel(plan));
+				mainWindow.DataContext = new MainViewModel(new PatientInfoViewModel(patient), new PlanInfoViewModel(plan), new CTInfoViewModel(plan.StructureSet.Image), new ReferencePointViewModel(plan),
+					new PatientShiftViewModel(plan));
 				//create an instance of the patient View.
 				var patientView = new PatientView();
 				//Set the DataContext of the patient view to an instance of the PatientInfoViewModel.
