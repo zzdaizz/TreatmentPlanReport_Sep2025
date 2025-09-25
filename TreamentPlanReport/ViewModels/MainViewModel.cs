@@ -9,17 +9,19 @@ namespace TreamentPlanReport.ViewModels
 	public class MainViewModel
 	{
 		// pass in the patientInfoViewMOdel via constructor injextion
-		public MainViewModel(PatientInfoViewModel patientInfoViewModel, PlanInfoViewModel planInfoVewModel, CTInfoViewModel cTInfoViewModel)
+		public MainViewModel(PatientInfoViewModel patientInfoViewModel, PlanInfoViewModel planInfoVewModel, CTInfoViewModel cTInfoViewModel, ReferencePointViewModel referencePointViewModel)
 		{
 			//set a property for PateintInfoViewModel for the MainView.xaml to bind to
 			PatientInfoViewModel = patientInfoViewModel;
 			PlanInfoViewModel = planInfoVewModel;
 			CTInfoViewModel = cTInfoViewModel;
+			ReferencePointViewModel = referencePointViewModel;	
 		}
 
 		//this property is what the MainView.xaml PatientView usercontorl binds to for its datacontext.
 		public PatientInfoViewModel PatientInfoViewModel { get; }
 		public PlanInfoViewModel PlanInfoViewModel { get; }
 		public CTInfoViewModel CTInfoViewModel { get; }
+		public ReferencePointViewModel ReferencePointViewModel { get; }
 	}
 }

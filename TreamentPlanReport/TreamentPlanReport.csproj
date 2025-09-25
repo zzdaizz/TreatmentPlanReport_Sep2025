@@ -72,7 +72,7 @@
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModels\PatientInfoViewModel.cs" />
     <Compile Include="ViewModels\PlanViewModel.cs" />
-    <Compile Include="ViewModels\ReferencePointModel.cs" />
+    <Compile Include="ViewModels\ReferencePointViewModel.cs" />
     <Compile Include="Views\CTImageView.xaml.cs">
       <DependentUpon>CTImageView.xaml</DependentUpon>
     </Compile>
