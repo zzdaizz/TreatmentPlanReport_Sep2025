@@ -1,0 +1,113 @@
+﻿<UserControl x:Class="TreamentPlanReport.Views.FieldDetailsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:TreamentPlanReport.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800"
+             Background="White">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <TextBlock Text="Field Info" FontWeight="Bold" FontSize="16" Margin="20,10,0,0"/>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Border BorderBrush="Black" BorderThickness="0,0,0,1" Grid.ColumnSpan="4"/>
+            <TextBlock Text="Field ID" FontWeight="Bold" Margin="2"/>
+            <TextBlock Text="{Binding FieldID}" Margin="2" Grid.Column="1"/>
+            <Border BorderBrush="Black" BorderThickness="0,0,0,1" Grid.ColumnSpan="4" Grid.Row="1"/>
+            <TextBlock Text="Field Name" FontWeight="Bold" Margin="2" Grid.Row="1"/>
+            <TextBlock Text="{Binding FieldName}" Margin="2" Grid.Column="1" Grid.Row="1"/>
+            <Border BorderBrush="Black" BorderThickness="0,0,0,1" Grid.ColumnSpan="4" Grid.Row="2"/>
+            <TextBlock Text="Technique" FontWeight="Bold" Margin="2" Grid.Row="2"/>
+            <TextBlock Text="{Binding Technique}" Margin="2" Grid.Column="1" Grid.Row="2"/>
+            <Border BorderBrush="Black" BorderThickness="0,0,0,1" Grid.ColumnSpan="4" Grid.Row="3"/>
+            <TextBlock Text="MLC Type" FontWeight="Bold" Margin="2" Grid.Row="3"/>
+            <TextBlock Text="{Binding MLCType}" Margin="2" Grid.Column="1" Grid.Row="3"/>
+            <TextBlock Text="Machine ID" FontWeight="Bold" Margin="2" Grid.Column="2"/>
+            <TextBlock Text="{Binding MachineID}" Margin="2" Grid.Column="3"/>
+            <TextBlock Text="Machine Type" FontWeight="Bold" Margin="2" Grid.Row="1" Grid.Column="2"/>
+            <TextBlock Text="{Binding MachineType}" Margin="2" Grid.Column="3" Grid.Row="1"/>
+            <TextBlock Text="Energy Mode" FontWeight="Bold" Margin="2" Grid.Column="2" Grid.Row="2"/>
+            <TextBlock Text="{Binding EnergyMode}" Margin="2" Grid.Column="3" Grid.Row="2"/>
+            <TextBlock Text="Dose Rate [MU/min]" FontWeight="Bold" Margin="2" Grid.Column="2" Grid.Row="3"/>
+            <TextBlock Text="{Binding DoseRate}" Margin="2" Grid.Column="3" Grid.Row="3"/>
+        </Grid>
+        <TextBlock Text="Field Geometry" FontWeight="Bold" FontSize="16" Margin="20,10,5,5" Grid.Row="2"/>
+        <Grid Grid.Row="3">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Border BorderBrush="Black" BorderThickness="0,0,0,1" Grid.ColumnSpan="8"/>
+            <TextBlock Text="Gantry [deg]" FontWeight="Bold" Margin="2"/>
+            <TextBlock Text="{Binding Gantry}" Margin="2" Grid.Row="1"/>
+            <TextBlock Text="Collimator [deg]" FontWeight="Bold" Margin="2" Grid.Column="1"/>
+            <TextBlock Text="{Binding Collimator}" Margin="2" Grid.Row="1" Grid.Column="1"/>
+            <TextBlock Text="Couch [deg]" FontWeight="Bold" Margin="2" Grid.Column="2"/>
+            <TextBlock Text="{Binding Couch}" Margin="2" Grid.Row="1" Grid.Column="2"/>
+            <TextBlock Text="Field X [cm]" FontWeight="Bold" Margin="2" Grid.Column="3"/>
+            <StackPanel Grid.Row="1" Grid.Column="3">
+                <TextBlock Text="{Binding FieldX}" Margin="2" Grid.Row="1" Grid.Column="3"/>
+                <TextBlock>
+             <Run FontWeight="Bold" Text="X1:"/>
+             <Run Text="{Binding X1}"/>
+                </TextBlock>
+                <TextBlock>
+             <Run FontWeight="Bold" Text="X2:"/>
+             <Run Text="{Binding X2}"/>
+                </TextBlock>
+            </StackPanel>
+            <TextBlock Text="Field Y [cm]" FontWeight="Bold" Margin="2" Grid.Column="4"/>
+            <StackPanel Grid.Row="1" Grid.Column="4">
+                <TextBlock Text="{Binding FieldY}" Margin="2" Grid.Row="1" Grid.Column="3"/>
+                <TextBlock>
+ <Run FontWeight="Bold" Text="Y1:"/>
+ <Run Text="{Binding Y1}"/>
+                </TextBlock>
+                <TextBlock>
+ <Run FontWeight="Bold" Text="Y2:"/>
+ <Run Text="{Binding Y2}"/>
+                </TextBlock>
+            </StackPanel>
+            <TextBlock Text="Isocenter [cm]" FontWeight="Bold" Margin="2" Grid.Column="5"/>
+            <TextBlock Text="{Binding Isocenter}" Margin="2" Grid.Row="1" Grid.Column="5"/>
+            <TextBlock Text="SSD [cm]" FontWeight="Bold" Margin="2" Grid.Column="6"/>
+            <TextBlock Text="{Binding SSD}" Margin="2" Grid.Row="1" Grid.Column="6"/>
+            <TextBlock Text="MU" FontWeight="Bold" Margin="2" Grid.Column="7"/>
+            <TextBlock Text="{Binding MU}" Margin="2" Grid.Row="1" Grid.Column="7"/>
+        </Grid>
+        <StackPanel Grid.Row="4" Margin="0,10,0,0">
+            <TextBlock Text="DRR" FontWeight="Bold" HorizontalAlignment="Center"/>
+            <Image Width="200" Height="200" Source="{Binding DRR}"/>
+        </StackPanel>
+
+    </Grid>
+</UserControl>

@@ -7,18 +7,25 @@
         mc:Ignorable="d"
         Title="MainView" Height="850" Width="800">
     <Grid>
-        <StackPanel>
-            <TextBlock Text="Patient Info" FontWeight="Bold"/>
-            <local:PatientView DataContext="{Binding PatientInfoViewModel}"/>
-            <TextBlock Text="Plan Info" FontWeight="Bold"/>
-            <local:PlanInfoView DataContext="{Binding PlanInfoViewModel}"/>
-            <TextBlock Text="CT Info" FontWeight="Bold"/>
-            <local:CTImageView DataContext="{Binding CTInfoViewModel}"/>
-            <TextBlock Text="Reference Points" FontWeight="Bold"/>
-            <local:ReferencePointView DataContext="{Binding ReferencePointViewModel}"/>
-            <TextBlock Text="Patient Shift" FontWeight="Bold"/>
-            <local:PatientShiftView DataContext="{Binding PatientShiftViewModel}"/>
+        <TabControl>
+            <TabItem Header="Plan">
+                <StackPanel>
+                    <TextBlock Text="Patient Info" FontWeight="Bold"/>
+                    <local:PatientView DataContext="{Binding PatientInfoViewModel}"/>
+                    <TextBlock Text="Plan Info" FontWeight="Bold" Margin="0,20,0,0"/>
+                    <local:PlanInfoView DataContext="{Binding PlanInfoViewModel}"/>
+                    <TextBlock Text="CT Info" FontWeight="Bold" Margin="0,20,0,0"/>
+                    <local:CTImageView DataContext="{Binding CTImageViewModel}"/>
+                    <TextBlock Text="Reference Points" FontWeight="Bold" Margin="0,20,0,0"/>
+                    <local:ReferencePointView DataContext="{Binding ReferencePointViewModel}"/>
+                    <TextBlock Text="Patient Shifts" FontWeight="Bold" Margin="0,20,0,0"/>
+                    <local:PatientShiftView DataContext="{Binding PatientShiftViewModel}"/>
+                </StackPanel>
+            </TabItem>
+            <TabItem Header="Fields">
+                <local:FieldView DataContext="{Binding FieldViewModel}"/>
+            </TabItem>
+        </TabControl>
 
-        </StackPanel>
     </Grid>
 </Window>

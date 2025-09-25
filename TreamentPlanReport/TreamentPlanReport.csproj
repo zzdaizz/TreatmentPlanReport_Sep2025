@@ -68,10 +68,12 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Converters\PatientShiftConverter.cs" />
+    <Compile Include="Models\FieldModel.cs" />
     <Compile Include="Models\PatientShiftModel.cs" />
     <Compile Include="Models\ReferencePointModel.cs" />
     <Compile Include="Models\ShiftDirectionEnum.cs" />
     <Compile Include="ViewModels\CTImageViewModel.cs" />
+    <Compile Include="ViewModels\FieldViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModels\PatientInfoViewModel.cs" />
     <Compile Include="ViewModels\PatientShifViewModel.cs" />
@@ -79,6 +81,15 @@
     <Compile Include="ViewModels\ReferencePointViewModel.cs" />
     <Compile Include="Views\CTImageView.xaml.cs">
       <DependentUpon>CTImageView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FieldDetailsView.xaml.cs">
+      <DependentUpon>FieldDetailsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FieldSelectionView.xaml.cs">
+      <DependentUpon>FieldSelectionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FieldView.xaml.cs">
+      <DependentUpon>FieldView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\MainView.xaml.cs">
       <DependentUpon>MainView.xaml</DependentUpon>
@@ -124,6 +135,18 @@
   </ItemGroup>
   <ItemGroup>
     <Page Include="Views\CTImageView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\FieldDetailsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\FieldSelectionView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\FieldView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
