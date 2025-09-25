@@ -67,9 +67,15 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Models\ReferencePointModel.cs" />
+    <Compile Include="ViewModels\CTImageViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModels\PatientInfoViewModel.cs" />
     <Compile Include="ViewModels\PlanViewModel.cs" />
+    <Compile Include="ViewModels\ReferencePointModel.cs" />
+    <Compile Include="Views\CTImageView.xaml.cs">
+      <DependentUpon>CTImageView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\MainView.xaml.cs">
       <DependentUpon>MainView.xaml</DependentUpon>
     </Compile>
@@ -78,6 +84,9 @@
     </Compile>
     <Compile Include="Views\PlanInfoView.xaml.cs">
       <DependentUpon>PlanInfoView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ReferencePointView.xaml.cs">
+      <DependentUpon>ReferencePointView.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -107,6 +116,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Views\CTImageView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\MainView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -119,9 +132,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\ReferencePointView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Models\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,0 +1,98 @@
+﻿<UserControl x:Class="TreamentPlanReport.Views.ReferencePointView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:TreamentPlanReport.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800"
+             Background="White">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Grid.Resources>
+            <Style TargetType="TextBlock">
+                <Setter Property="Margin" Value="5" />
+                <Setter Property="TextWrapping" Value="Wrap" />
+                <Setter Property="VerticalAlignment" Value="Center" />
+            </Style>
+            <Style TargetType="Border">
+                <Setter Property="BorderBrush" Value="Black" />
+                <Setter Property="BorderThickness" Value="0,0,0,1" />
+            </Style>
+        </Grid.Resources>
+
+        <!-- Header Row -->
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Border Grid.Column="0">
+                <TextBlock FontWeight="Bold" Text="Id"/>
+            </Border>
+            <Border Grid.Column="1">
+                <TextBlock FontWeight="Bold" Text="Patient Volume Id"/>
+            </Border>
+            <Border Grid.Column="2">
+                <TextBlock FontWeight="Bold" Text="Daily Dose Limit"/>
+            </Border>
+            <Border Grid.Column="3">
+                <TextBlock FontWeight="Bold" Text="Location X"/>
+            </Border>
+            <Border Grid.Column="4">
+                <TextBlock FontWeight="Bold" Text="Location Y"/>
+            </Border>
+            <Border Grid.Column="5">
+                <TextBlock FontWeight="Bold" Text="Location Z"/>
+            </Border>
+        </Grid>
+
+        <!-- Data Rows -->
+        <ItemsControl ItemsSource="{Binding LRefPoints}" Grid.Row="2">
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Border Grid.Column="0">
+                            <TextBlock Text="{Binding Id}"/>
+                        </Border>
+                        <Border Grid.Column="1">
+                            <TextBlock Text="{Binding PatientVolumeId}"/>
+                        </Border>
+                        <Border Grid.Column="2">
+                            <TextBlock Text="{Binding DailyDoseLimit}"/>
+                        </Border>
+                        <Border Grid.Column="3">
+                            <TextBlock Text="{Binding LocationX}"/>
+                        </Border>
+                        <Border Grid.Column="4">
+                            <TextBlock Text="{Binding LocationY}"/>
+                        </Border>
+                        <Border Grid.Column="5">
+                            <TextBlock Text="{Binding LocationZ}"/>
+                        </Border>
+                    </Grid>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+
+    </Grid>
+</UserControl>
