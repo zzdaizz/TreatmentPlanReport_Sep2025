@@ -27,13 +27,14 @@ namespace TreamentPlanReport
 				var course = patient.Courses.FirstOrDefault(c => c.Id == "Demo");
 				var plan = course.PlanSetups.FirstOrDefault(p => p.Id == "IMRT Calc");
 				//Create a mainwindow to hold our patientview.
-				var mainWindow = new Window();
+				var mainWindow = new MainView();
+				mainWindow.DataContext = new MainViewModel(new PatientInfoViewModel(patient));
 				//create an instance of the patient View.
 				var patientView = new PatientView();
 				//Set the DataContext of the patient view to an instance of the PatientInfoViewModel.
 				//DataContext defines where the XAML finds its binding source.
-				patientView.DataContext = new PatientInfoViewModel(patient);
-				mainWindow.Content = patientView;
+				//patientView.DataContext = new PatientInfoViewModel(patient);
+				//mainWindow.Content = patientView;
 				mainWindow.ShowDialog();
 
 			}
