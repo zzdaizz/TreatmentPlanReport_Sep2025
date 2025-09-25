@@ -12,6 +12,9 @@
             <local:PatientView DataContext="{Binding PatientInfoViewModel}"/>
             <TextBlock Text="Plan Info" FontWeight="Bold"/>
             <local:PlanInfoView DataContext="{Binding PlanInfoViewModel}"/>
+            <TextBlock Text="CT Info" FontWeight="Bold"/>
+            <local:CTImageView DataContext="{Binding CTInfoViewModel}"/>
+
         </StackPanel>
     </Grid>
 </Window>
