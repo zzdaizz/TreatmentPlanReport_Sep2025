@@ -60,7 +60,7 @@ namespace TreamentPlanReport.Models
 			FieldY = Y2 - Y1;
 			Isocenter = GetIsocenter(beam, plan);
 			//SSD = beam.Meterset.Value;
-			SSD = beam.SSD / 10.0
+			SSD = beam.SSD / 10.0;
 			MU = beam.Meterset.Value;
 			DRR = BuildDRR(beam);
 		}
