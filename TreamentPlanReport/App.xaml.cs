@@ -22,11 +22,39 @@ namespace TreamentPlanReport
 			// To make this an ESAPI App, we must call CreatApplication
 			using (esapi.Application app = esapi.Application.CreateApplication())
 			{
-				var patient = app.OpenPatientById("RapidPlan-01");
-				//LINQ
+				string patientId = e.Args.FirstOrDefault().Split(';').First();
+				string courseId = e.Args.FirstOrDefault().Split(';').ElementAt(1);
+				string planId = e.Args.FirstOrDefault().Split(';').Last();
+
+				var patient = app.OpenPatientById(patientId);
+				if (patient == null)
+				{
+					MessageBox.Show("Please open a patient");
+					app.Dispose();
+					this.Shutdown();
+					return;
+		
+				}
+				//LINQ -> Language Integrated Query	(=> is a lambda operator)
 				// Collections.LinqWxpression(placeholder => placeholder.[properties][condition])
-				var course = patient.Courses.FirstOrDefault(c => c.Id == "Demo");
-				var plan = course.PlanSetups.FirstOrDefault(p => p.Id == "IMRT Calc");
+				var course = patient.Courses.FirstOrDefault(c => c.Id == courseId);
+				if (course == null)
+				{
+					MessageBox.Show("Please open a patient with a valid course");
+					app.Dispose();
+					this.Shutdown();
+					return;
+
+				}
+				var plan = course.PlanSetups.FirstOrDefault(p => p.Id == planId);
+				if (plan == null)
+				{
+					MessageBox.Show("Please open a patient with a valid plan");
+					app.Dispose();
+					this.Shutdown();
+					return;
+
+				}
 				//Create a mainwindow to hold our patientview.
 				var mainWindow = new MainView();
 				EventHelper eventHelper = new EventHelper();
