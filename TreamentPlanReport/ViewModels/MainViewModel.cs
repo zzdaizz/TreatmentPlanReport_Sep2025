@@ -1,9 +1,12 @@
 ﻿using DoseMetricExample.Helpers;
 using DVHPlot.ViewModels;
 using DVHPlot.Views;
+using Microsoft.Win32;
 using OxyPlot.Wpf;
+using PDFtoAria;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
@@ -12,6 +15,8 @@ using System.Windows;
 using System.Windows.Documents;
 using System.Windows.Media.Imaging;
 using TreamentPlanReport.Views;
+using VMS.TPS.Common.Model.API;
+
 
 namespace TreamentPlanReport.ViewModels
 {
@@ -23,10 +28,12 @@ namespace TreamentPlanReport.ViewModels
 
 		// pass in the patientInfoViewMOdel via constructor injextion
 
-		public MainViewModel(PatientInfoViewModel patientInfoViewModel, PlanInfoViewModel planInfoVewModel, CTInfoViewModel cTInfoViewModel, ReferencePointViewModel referencePointViewModel, PatientShiftViewModel patientViewModel,FieldViewModel fieldViewModel, DVHViewModel dvhViewModel, DVHSelectionViewModel dVHSelectionViewModel)
+		public MainViewModel(PatientInfoViewModel patientInfoViewModel, PlanInfoViewModel planInfoVewModel, CTInfoViewModel cTInfoViewModel, ReferencePointViewModel referencePointViewModel, PatientShiftViewModel patientViewModel,FieldViewModel fieldViewModel, DVHViewModel dvhViewModel, DVHSelectionViewModel dVHSelectionViewModel,
+			User user)
 		{
-		
+
 			//set a property for PateintInfoViewModel for the MainView.xaml to bind to
+			_user = user;
 			PatientInfoViewModel = patientInfoViewModel;
 			PlanInfoViewModel = planInfoVewModel;
 			CTInfoViewModel = cTInfoViewModel;
@@ -41,7 +48,16 @@ namespace TreamentPlanReport.ViewModels
 
 		private void OnARIAPost(object obj)
 		{
-			throw new NotImplementedException();
+			OpenFileDialog file = new OpenFileDialog();
+			file.Filter = "PDF (*.pdf)|*.pdf";
+			if (file.ShowDialog() == true)
+			{
+				var BinaryContent = File.ReadAllBytes(file.FileName);
+
+				CustomInsertDocumentsParameter.PostDocumentData(PatientInfoViewModel.PatientId, _user,
+						BinaryContent, "Plan Report",
+						new VMS.OIS.ARIALocal.WebServices.Document.Contracts.DocumentType { DocumentTypeDescription = "Treatment Plan Report" });
+			}
 		}
 
 		private void OnPrint(object obj)
@@ -83,6 +99,8 @@ namespace TreamentPlanReport.ViewModels
 				printer.PrintDocument(source.DocumentPaginator, "TreatmentPlanReport");
 			}
 		}
+
+		private User _user;
 
 		//this property is what the MainView.xaml PatientView usercontorl binds to for its datacontext.
 		public PatientInfoViewModel PatientInfoViewModel { get; }

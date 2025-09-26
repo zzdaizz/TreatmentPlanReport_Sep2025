@@ -37,7 +37,8 @@ namespace TreamentPlanReport
 					new PatientShiftViewModel(plan), 
 					new FieldViewModel(plan),
 					new DVHPlot.ViewModels.DVHViewModel(plan, eventHelper),
-					new DVHPlot.ViewModels.DVHSelectionViewModel(plan, eventHelper));
+					new DVHPlot.ViewModels.DVHSelectionViewModel(plan, eventHelper),
+					app.CurrentUser);
 				
 				//create an instance of the patient View.
 				var patientView = new PatientView();
