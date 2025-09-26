@@ -86,7 +86,9 @@
     <Compile Include="Models\ReferencePointModel.cs" />
     <Compile Include="Models\ShiftDirectionEnum.cs" />
     <Compile Include="Models\StructureSelectionModel.cs" />
+    <Compile Include="Services\CustomInsertDocumentsParameter.cs" />
     <Compile Include="Services\EventHelper.cs" />
+    <Compile Include="Services\Gateway.cs" />
     <Compile Include="Services\ViewModelBase.cs" />
     <Compile Include="ViewModels\CTImageViewModel.cs" />
     <Compile Include="ViewModels\DVHSelectionViewModel.cs" />
