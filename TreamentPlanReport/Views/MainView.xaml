@@ -4,10 +4,22 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TreamentPlanReport.Views"
+        xmlns:dvh="clr-namespace:DVHPlot.Views"
         mc:Ignorable="d"
-        Title="MainView" Height="850" Width="800">
+        Title="MainView" Height="850" Width="800"
+        Background="{StaticResource PrimaryBrush}">
     <Grid>
-        <TabControl>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel>
+            <Button Content="Print Report" Margin="10,5,10,5" Command="{Binding PrintCommand}"/>
+            <Button Content="Post to ARIA" Margin="10,5,10,5" Command="{Binding ARIAPostCommand}"/>
+        </StackPanel>
+        
+        <TabControl Grid.Row="1">
             <TabItem Header="Plan">
                 <StackPanel>
                     <TextBlock Text="Patient Info" FontWeight="Bold"/>
@@ -24,6 +36,12 @@
             </TabItem>
             <TabItem Header="Fields">
                 <local:FieldView DataContext="{Binding FieldViewModel}"/>
+            </TabItem>
+            <TabItem Header="DVH">
+                <DockPanel>
+                    <dvh:DVHSelectionView DockPanel.Dock="Left" DataContext="{Binding DVHSelectionViewModel}"/>
+                    <dvh:DVHView DockPanel.Dock="Right" DataContext="{Binding DVHViewModel}"/>
+                </DockPanel>
             </TabItem>
         </TabControl>
 

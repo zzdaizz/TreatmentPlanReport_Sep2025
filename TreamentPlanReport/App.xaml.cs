@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DoseMetricExample.Helpers;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -28,8 +29,16 @@ namespace TreamentPlanReport
 				var plan = course.PlanSetups.FirstOrDefault(p => p.Id == "IMRT Calc");
 				//Create a mainwindow to hold our patientview.
 				var mainWindow = new MainView();
-				mainWindow.DataContext = new MainViewModel(new PatientInfoViewModel(patient), new PlanInfoViewModel(plan), new CTInfoViewModel(plan.StructureSet.Image), new ReferencePointViewModel(plan),
-					new PatientShiftViewModel(plan), new FieldViewModel(plan));
+				EventHelper eventHelper = new EventHelper();
+				mainWindow.DataContext = new MainViewModel(new PatientInfoViewModel(patient), 
+					new PlanInfoViewModel(plan), 
+					new CTInfoViewModel(plan.StructureSet.Image), 
+					new ReferencePointViewModel(plan),
+					new PatientShiftViewModel(plan), 
+					new FieldViewModel(plan),
+					new DVHPlot.ViewModels.DVHViewModel(plan, eventHelper),
+					new DVHPlot.ViewModels.DVHSelectionViewModel(plan, eventHelper));
+				
 				//create an instance of the patient View.
 				var patientView = new PatientView();
 				//Set the DataContext of the patient view to an instance of the PatientInfoViewModel.
